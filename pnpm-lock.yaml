@@ -24,6 +24,9 @@ importers:
         specifier: ^0.3.19
         version: 0.3.19(@langchain/anthropic@0.3.15(@langchain/core@0.3.42(openai@4.87.4(zod@3.24.2))))(@langchain/core@0.3.42(openai@4.87.4(zod@3.24.2)))(openai@4.87.4(zod@3.24.2))
     devDependencies:
+      '@types/node':
+        specifier: ^22.13.11
+        version: 22.13.11
       tsx:
         specifier: ^4.19.3
         version: 4.19.3
@@ -215,7 +218,10 @@ packages:
     resolution: {integrity: sha512-8nneRWKCg3rMtF69nLQJnOYUcbafYeFSjqkw3jCRLsqkWFlHaoQrr5mXmofFGOx3DKn7UfmBMyov8ySvLRVldA==}
 
   '@types/node@18.19.80':
-    resolution: {integrity: sha512-kEWeMwMeIvxYkeg1gTc01awpwLbfMRZXdIhwRcakd/KlK53jmRC26LqcbIt7fnAQTu5GzlnWmzA3H6+l1u6xxQ==}
+    resolution: {integrity: sha512-kEWeMwMeIvxYkeg1gTc01awpwLbfMRZXdIhwRcakd/KlK53jmRC26LqcbIt7fnAQTu5GzlnWmzA3H6+l1u6xxQ==, tarball: https://artifactory.navercorp.com:443/artifactory/api/npm/npm-naver/@types/node/-/node-18.19.80.tgz}
+
+  '@types/node@22.13.11':
+    resolution: {integrity: sha512-iEUCUJoU0i3VnrCmgoWCXttklWcvoCIx4jzcP22fioIVSdTmjgoEvmAO/QPw6TcS9k5FrNgn4w7q5lGOd1CT5g==, tarball: https://artifactory.navercorp.com:443/artifactory/api/npm/npm-naver/@types/node/-/node-22.13.11.tgz}
 
   '@types/retry@0.12.0':
     resolution: {integrity: sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==}
@@ -553,6 +559,9 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==, tarball: https://artifactory.navercorp.com:443/artifactory/api/npm/npm-naver/undici-types/-/undici-types-6.20.0.tgz}
+
   uuid@10.0.0:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
     hasBin: true
@@ -716,12 +725,16 @@ snapshots:
 
   '@types/node-fetch@2.6.12':
     dependencies:
-      '@types/node': 18.19.80
+      '@types/node': 22.13.11
       form-data: 4.0.2
 
   '@types/node@18.19.80':
     dependencies:
       undici-types: 5.26.5
+
+  '@types/node@22.13.11':
+    dependencies:
+      undici-types: 6.20.0
 
   '@types/retry@0.12.0': {}
 
@@ -1015,6 +1028,8 @@ snapshots:
   typescript@5.8.2: {}
 
   undici-types@5.26.5: {}
+
+  undici-types@6.20.0: {}
 
   uuid@10.0.0: {}
 
