@@ -1,7 +1,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import {PromptTemplate, ChatPromptTemplate } from '@langchain/core/prompts';
 import { HumanMessage, SystemMessage, AIMessage } from "@langchain/core/messages";
-import {LLMChain} from 'langchain/chains';
+import {LLMChain} from 'langchain/chains'; 
 import 'dotenv/config';
 
 const systemMessage = new SystemMessage("너는 항상 밝은 말투로 대화하는 챗봇이야. 답변의 끝에 이모티콘을 붙여줘.");
