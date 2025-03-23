@@ -1,7 +1,12 @@
+/**
+ * 날짜 형식만 출력하는 DateTimeOutputParser 예제
+ */
 import { ChatOpenAI } from "@langchain/openai";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { HumanMessagePromptTemplate, ChatPromptTemplate, PromptTemplate } from '@langchain/core/prompts';
 
+// @langchain/core/output_parsers 에서 존재하지 않는다.
+// 두개를 비교해봐야 하나? 버전이 없하면 또 변경될 수 있을 것 같다.
 import { DatetimeOutputParser } from 'langchain/output_parsers';
 
 import 'dotenv/config';

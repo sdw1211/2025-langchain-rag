@@ -1,7 +1,11 @@
+/**
+ * 퓨샷(Few-shot): 딥러닝 모델이 결과물을 출력할 때 예시 결과물을 제시함으로써 원하는 결과물로 유도하는 방법론
+ */
 import {PromptTemplate, FewShotPromptTemplate} from '@langchain/core/prompts';
 import { ChatOpenAI } from "@langchain/openai";
 import 'dotenv/config';
 
+// 예시 결과물
 const examples = [{
     question: '아이유로 삼행시 만들어줘',
     answer: `
@@ -26,6 +30,7 @@ const fewPrompt = new FewShotPromptTemplate({
 
 const model = new ChatOpenAI({ model: "gpt-4o-mini" });
 
+// 결과를 구한다.
 const result = await model.invoke(await fewPrompt.format({input: "호날두로 삼행시 만들어줘"}));
 
 console.log(result.content);

@@ -1,4 +1,7 @@
- import { ChatOpenAI } from "@langchain/openai";
+/**
+ * JSON 파서를 사용한 예제
+ */
+import { ChatOpenAI } from "@langchain/openai";
 import { PromptTemplate } from '@langchain/core/prompts';
 
 import { JsonOutputParser } from '@langchain/core/output_parsers';
@@ -11,12 +14,13 @@ type Answer = {
     population: string;
 };
 
+// pydantic 이랑 비슷한 방식이 있을 것 같은데
 const formatInstructions = `
 Respond only in valid JSON. The JSON object you return should match the following schema:
-{ continent: string, population: string }
-
-continent는 사용자 물어본 나라가 속한 대륙이야.
-population은 사용자가 물어본 나라의 인구인데 숫자형태로 부탁해. 3자리별로 ,도 부탁해
+{ 
+    continent: string           // continent는 사용자 물어본 나라가 속한 대륙이야
+    , population: string        // 사용자가 물어본 나라의 인구인데 숫자형태로 부탁해. 3자리별로 ,도 부탁해
+}
 `;
 
 const model = new ChatOpenAI({ model: "gpt-4o-mini", temperature: 0 });
