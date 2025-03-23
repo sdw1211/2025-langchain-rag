@@ -30,6 +30,8 @@ const fewPrompt = new FewShotPromptTemplate({
 
 const model = new ChatOpenAI({ model: "gpt-4o-mini" });
 
+// const result = await model.invoke("호날두로 삼행시 만들어줘");
+
 // 결과를 구한다.
 const result = await model.invoke(await fewPrompt.format({input: "호날두로 삼행시 만들어줘"}));
 
