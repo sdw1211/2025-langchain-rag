@@ -11,30 +11,38 @@ import { HumanMessage, SystemMessage, AIMessage } from "@langchain/core/messages
 import {LLMChain} from 'langchain/chains'; 
 import 'dotenv/config';
 
+const model = new ChatOpenAI({ model: "gpt-4o-mini" });
+
 // 공통적인 역할을 미리 만들어놓는다.
-const prompt = PromptTemplate.fromTemplate(`
-    너는 요리사야. 내가 가진 재료들을 갖고 만들 수 있는 요리를 {개수}추천하고,
-    그 요리의 래시피를 제시해줘. 내가 가진 재료는 아래와 같아.
-    <재료>
-    {재료}    
-`);
+// const prompt = PromptTemplate.fromTemplate(`
+//     너는 요리사야. 내가 가진 재료들을 갖고 만들 수 있는 요리를 {개수}추천하고,
+//     그 요리의 래시피를 제시해줘. 내가 가진 재료는 아래와 같아.
+//     <재료>
+//     {재료}    
+// `);
 
-// 실제 입력은 이런식으로 받는다.
-const messages = await prompt.format({
-    개수: 3,
-    재료: [
-        "닭고기",
-        "당근",
-        "양파",
-        "감자",
-        "소금",
-        "후추",
-        "올리브유",
-    ],
-});
+// // 실제 입력은 이런식으로 받는다.
+// const messages = await prompt.format({
+//     개수: 3,
+//     재료: [
+//         "닭고기",
+//         "당근",
+//         "양파",
+//         "감자",
+//         "소금",
+//         "후추",
+//         "올리브유",
+//     ],
+// });
 
-console.log(messages);
+// console.log(messages);
 
+
+// const stream = await model.stream(messages);
+
+// for await (const chunk of stream) {
+//     process.stdout.write(chunk.content as string);
+// }
 
 // ChatPromptTemplate은 PromptTemplate에서 SystemMessage, HumanMessage, AIMessage 가 추가됩니다.
 // 이미 나눈 대화를 넣어 맥락을 더해줄 수 있습니다.
@@ -45,7 +53,7 @@ const humanMessage = new HumanMessage("오늘은 날씨가 어때?");
 const aiMessage = new AIMessage("오늘은 날씨가 맑고 화창해요! 😊");
 const humanMessage2 = new HumanMessage("{input}");
 
-const model = new ChatOpenAI({ model: "gpt-4o-mini" });
+
 
 const prompt2 = await ChatPromptTemplate
     .fromMessages([systemMessage, humanMessage, aiMessage])
@@ -55,6 +63,8 @@ const prompt2 = await ChatPromptTemplate
 // 체인을 설정하는 방법이 책과 다름(책의 방식은 Deprecated 됨)
 const chain = prompt2.pipe(model);
 
-const result = await chain.invoke("오늘 너의 기분은 어때?");
+const stream2 = await chain.stream("오늘 너의 기분은 어때?");
 
-console.log(result);
+for await (const chunk of stream2) {
+    process.stdout.write(chunk.content as string);
+}
