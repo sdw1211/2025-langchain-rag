@@ -41,19 +41,19 @@ const model = new ChatOpenAI({ model: "gpt-4o-mini", temperature: 0 });
 const outputParser = new CommaSeparatedListOutputParser();
 
 // 이렇게 물어보면 어렵네..
-// const chatTemplate = ChatPromptTemplate.fromMessages([
-//     new SystemMessage("너는 영화 전문가 AI야. 사용자가 원하는 장르의 영화를 리스트 형태로 추천해줘."),
-//     new SystemMessage("ex) Query: SF 영화 3개 추천해줘 / 답변: ['인터스텔라', '스페이지오디세이', '혹성탈출']"),
-//     HumanMessagePromptTemplate.fromTemplate('{text}')
-// ]);
+const chatTemplate = ChatPromptTemplate.fromMessages([
+    new SystemMessage("너는 영화 전문가 AI야. 사용자가 원하는 장르의 영화를 리스트 형태로 추천해줘."),
+    new SystemMessage("ex) Query: SF 영화 3개 추천해줘 / 답변: ['인터스텔라', '스페이지오디세이', '혹성탈출']"),
+    HumanMessagePromptTemplate.fromTemplate('{text}')
+]);
 
-// const messages = await chatTemplate.formatMessages({
-//     text: "액션 영화 5개를 추천해줘."
-// });
+const messages = await chatTemplate.formatMessages({
+    text: "액션 영화 5개를 추천해줘."
+});
 
-// const answer = await model.invoke(messages);
+const answer = await model.invoke(messages);
 
-// console.log(answer.content);
+console.log(answer.content);
 
 
 const prompt = PromptTemplate.fromTemplate("List {number} {subject}. answer in Korean.\n{formatInstructions}");

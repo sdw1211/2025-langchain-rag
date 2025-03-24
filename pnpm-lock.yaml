@@ -26,6 +26,9 @@ importers:
       langchain:
         specifier: ^0.3.19
         version: 0.3.19(@langchain/anthropic@0.3.15(@langchain/core@0.3.42(openai@4.87.4(zod@3.24.2))))(@langchain/core@0.3.42(openai@4.87.4(zod@3.24.2)))(openai@4.87.4(zod@3.24.2))
+      zod:
+        specifier: ^3.24.2
+        version: 3.24.2
     devDependencies:
       '@types/node':
         specifier: ^22.13.11
@@ -284,7 +287,7 @@ packages:
     resolution: {integrity: sha512-wKGOQRRvdnd89pCeH96e2Fn4wkbenSP6LMHfjfyNLMbGuHEFbMqQNuxXqd0oXG9caIOQ1FTvc5Uijp9/4jujnQ==}
 
   dayjs@1.11.13:
-    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==, tarball: https://artifactory.navercorp.com:443/artifactory/api/npm/npm-naver/dayjs/-/dayjs-1.11.13.tgz}
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   decamelize@1.2.0:
     resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
@@ -593,7 +596,7 @@ packages:
       zod: ^3.24.1
 
   zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==, tarball: https://artifactory.navercorp.com:443/artifactory/api/npm/npm-naver/zod/-/zod-3.24.2.tgz}
 
 snapshots:
 
